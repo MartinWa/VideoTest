@@ -158,3 +158,4 @@ $RECYCLE.BIN/
 
 !/packages/repositories.config
 /packages
+/VideoTest/App_Data/BigBuckBunny_640x360.mp4
