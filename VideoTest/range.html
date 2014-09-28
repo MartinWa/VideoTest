@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>VideoTest</title>
+</head>
+<body>
+    <link href="Content/video-js.css" rel="stylesheet">
+    <script src="Scripts/video.js"></script>
+    <script>
+        videojs.options.flash.swf = "Content/video-js.swf"
+    </script>
+    <video class="video-js vjs-default-skin vjs-big-play-centered" width="640" height="360" poster="Content/big_buck_bunny_640x360.jpg" data-setup='{"controls":true}'>
+        <source src="api/rangevideo" type="video/mp4">
+        <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+    </video>
+</body>
+</html>

@@ -80,6 +80,10 @@
     <Content Include="Content\video-js.swf" />
     <Content Include="Content\font\vjs.svg" />
     <Content Include="Index.html" />
+    <Content Include="instant.html" />
+    <Content Include="video.html" />
+    <Content Include="range.html" />
+    <Content Include="instantrange.html" />
     <Content Include="packages.config" />
     <Content Include="Content\font\vjs.woff" />
     <Content Include="Content\font\vjs.ttf" />
@@ -101,12 +105,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\InstantRangeVideoController.cs" />
+    <Compile Include="Controllers\RangeVideoController.cs" />
+    <Compile Include="Controllers\VideoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\VideoStream.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\VideoController.cs" />
+    <Compile Include="Controllers\InstantVideoController.cs" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

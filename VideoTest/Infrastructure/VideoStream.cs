@@ -10,10 +10,12 @@ namespace VideoTest.Infrastructure
     public class VideoStream
     {
         private readonly string _path;
+        private readonly long _startByte;
 
-        public VideoStream(string path)
+        public VideoStream(string path, long startByte = 0)
         {
             _path = path;
+            _startByte = startByte;
         }
 
         public async Task WriteToStream(Stream outputStream, HttpContent content, TransportContext context)
@@ -22,10 +24,11 @@ namespace VideoTest.Infrastructure
             {
                 var buffer = new byte[65536];
 
-                using (var video = File.Open(_path, FileMode.Open, FileAccess.Read))
+                using (var video = File.Open(_path, FileMode.Open, FileAccess.Read, FileShare.Read))
                 {
-                    var length = (int)video.Length;
+                    var length = (int)(video.Length - _startByte);
                     var bytesRead = 1;
+                    video.Seek(_startByte, SeekOrigin.Begin);
 
                     while (length > 0 && bytesRead > 0)
                     {
@@ -37,6 +40,7 @@ namespace VideoTest.Infrastructure
             }
             catch (HttpException)
             {
+
             }
             finally
             {

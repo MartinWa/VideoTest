@@ -1,13 +1,17 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using VideoTest.Infrastructure;
 
 namespace VideoTest.Controllers
 {
-    public class VideoController : ApiController
+    public class InstantVideoController : ApiController
     {
         // GET api/<controller>
         public HttpResponseMessage Get()
@@ -18,14 +22,9 @@ namespace VideoTest.Controllers
                 //  return NotFound();
                 return new HttpResponseMessage(HttpStatusCode.NotFound);
             }
+            var video = new VideoStream(path);
             var response = Request.CreateResponse(HttpStatusCode.OK);
-            using (var video = File.Open(path, FileMode.Open, FileAccess.Read, FileShare.Read))
-            {
-                var buffer = new byte[video.Length];
-                video.Read(buffer, 0, buffer.Length);
-                response.Content = new ByteArrayContent(buffer);
-                response.Content.Headers.ContentType = new MediaTypeHeaderValue("video/mp4");
-            }
+            response.Content = new PushStreamContent((Func<Stream, HttpContent, TransportContext, Task>)video.WriteToStream, new MediaTypeHeaderValue("video/mp4"));
             return response;
         }
     }
