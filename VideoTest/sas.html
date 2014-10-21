@@ -2,6 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>VideoTest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="Content/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
     <link href="Content/video-js.css" rel="stylesheet">
@@ -9,9 +11,23 @@
     <script>
         videojs.options.flash.swf = "Content/video-js.swf"
     </script>
-    <video class="video-js vjs-default-skin vjs-big-play-centered" width="640" height="360" poster="Content/big_buck_bunny_640x360.jpg" data-setup='{"controls":true}'>
-        <source src="api/sas" type="video/mp4">
-        <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
-    </video>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <video id="current_video" class="video-js vjs-default-skin vjs-big-play-centered" width="640" height="360" poster="Content/big_buck_bunny_640x360.jpg" data-setup='{"controls":true}'>
+                <source src="api/sas" type="video/mp4">
+                <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+            </video>
+        </li>
+        <li class="list-group-item">
+            <button type="button" class="btn btn-default" onclick="seek()">Start with seek</button>
+        </li>
+    </ul>
+    <script>
+        function seek() {
+            var player = videojs("current_video");
+            player.play();
+            player.currentTime(100);
+        };
+    </script>
 </body>
 </html>
