@@ -4,13 +4,18 @@
     <title>VideoTest</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="Content/bootstrap.css" rel="stylesheet" />
-</head>
-<body>
+    <link href="Content/site.css" rel="stylesheet" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/site.css" rel="stylesheet" />
     <link href="Content/video-js.css" rel="stylesheet">
     <script src="Scripts/video.js"></script>
     <script>
         videojs.options.flash.swf = "Content/video-js.swf"
     </script>
+    <script src="Scripts/skip.js"></script>
+</head>
+
+<body>
     <ul class="list-group">
         <li class="list-group-item">
             <video id="current_video" class="video-js vjs-default-skin vjs-big-play-centered" width="640" height="360" poster="Content/big_buck_bunny_640x360.jpg" data-setup='{"controls":true}'>
@@ -22,12 +27,5 @@
             <button type="button" class="btn btn-default" onclick="seek()">Start with seek</button>
         </li>
     </ul>
-    <script>
-        function seek() {
-            var player = videojs("current_video");
-            player.play();
-            player.currentTime(100);
-        };
-    </script>
 </body>
 </html>

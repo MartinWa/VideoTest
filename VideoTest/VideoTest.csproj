@@ -104,6 +104,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font\vjs.svg" />
+    <Content Include="Content\site.css" />
     <Content Include="Content\video-js.css" />
     <Content Include="Content\video-js.min.css" />
     <Content Include="Content\video-js.swf" />
@@ -120,6 +121,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\skip.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="shortsas.html" />
